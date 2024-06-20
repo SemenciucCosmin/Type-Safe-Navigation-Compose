@@ -1,0 +1,21 @@
+<resources>
+    <!--  APP  -->
+    <string name="app_name">Type-Safe Navigation Compose</string>
+
+    <!--  ROUTE LABELS  -->
+    <string name="lbl_A">A</string>
+    <string name="lbl_B">B</string>
+    <string name="lbl_C">C</string>
+    <string name="lbl_D">D</string>
+    <string name="lbl_E">E</string>
+
+    <!--  ROUTE MESSAGES  -->
+    <string name="lbl_route_A">Route A</string>
+    <string name="lbl_route_B">Route B</string>
+    <string name="lbl_route_C">Route C</string>
+    <string name="lbl_route_D">Route D</string>
+    <string name="lbl_route_E">Route E</string>
+
+    <!--  ROUTE A  -->
+    <string name="lbl_navigate_button">Navigate to Route E</string>
+</resources>
