@@ -3,8 +3,6 @@ package com.example.typesafenavigationcompose.presentation.theme
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
@@ -17,8 +15,8 @@ fun MedicalClinicTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        darkTheme -> darkColorScheme()
-        else -> lightColorScheme()
+        darkTheme -> TypeSafeNavigationComposeDarkColorScheme
+        else -> TypeSafeNavigationComposeLightColorScheme
     }
 
     val view = LocalView.current
