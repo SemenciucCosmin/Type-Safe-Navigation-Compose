@@ -5,6 +5,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navDeepLink
+import androidx.navigation.toRoute
 import com.example.typesafenavigationcompose.presentation.routeA.RouteA
 import com.example.typesafenavigationcompose.presentation.routeB.RouteB
 import com.example.typesafenavigationcompose.presentation.routeC.RouteC
@@ -25,6 +27,18 @@ fun NavigationGraph(
         composable<NavDestination.B> { RouteB() }
         composable<NavDestination.C> { RouteC() }
         composable<NavDestination.D> { RouteD() }
-        composable<NavDestination.E> { RouteE() }
+        composable<NavDestination.E>(
+            deepLinks = listOf(
+                navDeepLink<NavDestination.E>(
+                    basePath = "typesafenavigationcompose://route_e",
+                )
+            )
+        ) {
+            val args = it.toRoute<NavDestination.E>()
+            RouteE(
+                parameter1 = args.parameter1,
+                parameter2 = args.parameter2
+            )
+        }
     }
 }

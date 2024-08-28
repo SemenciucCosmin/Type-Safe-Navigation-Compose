@@ -1,32 +1,34 @@
 package com.example.typesafenavigationcompose.navigation
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import com.example.typesafenavigationcompose.R
 
 data class BottomNavigationItem(
-    val label: Int,
-    val icon: Int,
+    @StringRes val stringRes: Int,
+    @DrawableRes val drawableRes: Int,
     val destination: NavDestination,
 )
 
 val bottomNavigationItems = listOf(
     BottomNavigationItem(
-        label = R.string.lbl_A,
-        icon = R.drawable.ic_letter_a,
+        stringRes = R.string.lbl_A,
+        drawableRes = R.drawable.ic_letter_a,
         destination = NavDestination.A
     ),
     BottomNavigationItem(
-        label = R.string.lbl_B,
-        icon = R.drawable.ic_letter_b,
+        stringRes = R.string.lbl_B,
+        drawableRes = R.drawable.ic_letter_b,
         destination = NavDestination.B
     ),
     BottomNavigationItem(
-        label = R.string.lbl_C,
-        icon = R.drawable.ic_letter_c,
+        stringRes = R.string.lbl_C,
+        drawableRes = R.drawable.ic_letter_c,
         destination = NavDestination.C
     ),
     BottomNavigationItem(
-        label = R.string.lbl_D,
-        icon = R.drawable.ic_letter_e,
+        stringRes = R.string.lbl_D,
+        drawableRes = R.drawable.ic_letter_e,
         destination = NavDestination.D
     )
 )

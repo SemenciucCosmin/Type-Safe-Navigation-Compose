@@ -12,12 +12,19 @@ import androidx.compose.ui.unit.dp
 import com.example.typesafenavigationcompose.R
 
 @Composable
-fun RouteE() {
+fun RouteE(
+    parameter1: String,
+    parameter2: String,
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = stringResource(R.string.lbl_route_E))
+
+        Text(text = "parameter1: $parameter1")
+
+        Text(text = "parameter2: $parameter2")
     }
 }

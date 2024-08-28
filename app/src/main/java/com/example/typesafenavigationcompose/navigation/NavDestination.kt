@@ -1,26 +1,28 @@
 package com.example.typesafenavigationcompose.navigation
 
-import androidx.annotation.StringRes
-import com.example.typesafenavigationcompose.R
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-sealed class NavDestination(@StringRes val topBarTitleRes: Int) {
+sealed class NavDestination {
 
     @Serializable
-    data object A : NavDestination(R.string.lbl_A)
+    data object A : NavDestination()
 
     @Serializable
-    data object B : NavDestination(R.string.lbl_B)
+    data object B : NavDestination()
 
     @Serializable
-    data object C : NavDestination(R.string.lbl_C)
+    data object C : NavDestination()
 
     @Serializable
-    data object D : NavDestination(R.string.lbl_D)
+    data object D : NavDestination()
 
     @Serializable
-    data object E : NavDestination(R.string.lbl_E)
+    data class E(
+        @SerialName("parameter1") val parameter1: String = "",
+        @SerialName("parameter2") val parameter2: String = ""
+    ) : NavDestination()
 
     fun asRoute(): String? = this.javaClass.canonicalName
 }

@@ -33,12 +33,12 @@ fun BottomNavigationBar() {
                 icon = {
                     Icon(
                         modifier = Modifier.size(30.dp),
-                        painter = painterResource(navigationItem.icon),
+                        painter = painterResource(navigationItem.drawableRes),
                         contentDescription = null
                     )
                 },
                 label = {
-                    Text(text = stringResource(navigationItem.label))
+                    Text(text = stringResource(navigationItem.stringRes))
                 }
             )
         }

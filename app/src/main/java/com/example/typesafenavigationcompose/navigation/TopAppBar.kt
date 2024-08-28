@@ -17,13 +17,16 @@ import com.example.typesafenavigationcompose.R
 fun TopAppBar() {
     val navController = LocalNavController.current
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val bottomNavigationDestinations = bottomNavigationItems.map { it.destination }
 
     navBackStackEntry?.navDestination?.let { navDestination ->
+        val topNavigationItem = topNavigationItems.firstOrNull {
+            it.destination.asRoute() == navDestination.asRoute()
+        } ?: return@let
+
         CenterAlignedTopAppBar(
-            title = { Text(stringResource(navDestination.topBarTitleRes)) },
+            title = { Text(stringResource(topNavigationItem.stringRes)) },
             navigationIcon = {
-                if (navDestination !in bottomNavigationDestinations) {
+                if (topNavigationItem.isNavigateUpAllowed) {
                     IconButton(onClick = { navController.navigateUp() }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_back),

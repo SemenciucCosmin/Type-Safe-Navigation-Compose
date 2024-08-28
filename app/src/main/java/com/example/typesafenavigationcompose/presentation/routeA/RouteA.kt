@@ -25,7 +25,16 @@ fun RouteA() {
     ) {
         Text(text = stringResource(R.string.lbl_route_A))
 
-        Button(onClick = { navController.navigate(NavDestination.E) }) {
+        Button(
+            onClick = {
+                navController.navigate(
+                    NavDestination.E(
+                        parameter1 = "First parameter",
+                        parameter2 = "Second parameter",
+                    )
+                )
+            }
+        ) {
             Text(text = stringResource(R.string.lbl_navigate_button))
         }
     }
