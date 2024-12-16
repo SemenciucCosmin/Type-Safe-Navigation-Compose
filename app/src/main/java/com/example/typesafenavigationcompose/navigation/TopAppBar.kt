@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.typesafenavigationcompose.R
 
@@ -18,9 +19,9 @@ fun TopAppBar() {
     val navController = LocalNavController.current
     val navBackStackEntry by navController.currentBackStackEntryAsState()
 
-    navBackStackEntry?.navDestination?.let { navDestination ->
+    navBackStackEntry?.destination?.let { navDestination ->
         val topNavigationItem = topNavigationItems.firstOrNull {
-            it.destination.asRoute() == navDestination.asRoute()
+            navDestination.hasRoute(it.destination::class)
         } ?: return@let
 
         CenterAlignedTopAppBar(

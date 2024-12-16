@@ -32,7 +32,7 @@ val topNavigationItems = listOf(
     ),
     TopNavigationItem(
         stringRes = R.string.lbl_E,
-        destination = NavDestination.E(),
+        destination = NavDestination.E(""),
         isNavigateUpAllowed = true
     )
 )

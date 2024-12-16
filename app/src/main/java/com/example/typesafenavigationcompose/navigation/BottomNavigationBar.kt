@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 
@@ -18,11 +19,12 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 fun BottomNavigationBar() {
     val navController = LocalNavController.current
     val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
 
     NavigationBar {
         bottomNavigationItems.forEach { navigationItem ->
             NavigationBarItem(
-                selected = navBackStackEntry?.navDestination == navigationItem.destination,
+                selected = currentDestination?.hasRoute(navigationItem.destination::class) == true,
                 onClick = {
                     navController.navigate(navigationItem.destination) {
                         popUpTo(navController.graph.findStartDestination().id) { saveState = true }
